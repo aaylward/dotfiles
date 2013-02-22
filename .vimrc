@@ -110,6 +110,9 @@ autocmd filetype javascript set tabstop=2
 "au! BufRead,BufNewFile *.ftl setfiletype ftl
 "au! BufRead,BufNewFile *.json setfiletype json 
 "au! BufRead,BufNewFile vimperator-wiki.hubspotcentral.com.tmp setfiletype confluencewiki 
+"
+au BufNewFile,BufRead *.hbs set filetype=hbs
+
 au! BufRead,BufNewFile *.djml setfiletype htmldjango
 autocmd filetype htmldjango set shiftwidth=2
 autocmd filetype htmldjango set tabstop=2

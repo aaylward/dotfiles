@@ -87,7 +87,7 @@ set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
 set expandtab
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**
 
 "source $VIMRUNTIME/gvimrc_example.vim
 "set tabstop=2
@@ -111,8 +111,6 @@ autocmd filetype javascript set tabstop=2
 "au! BufRead,BufNewFile *.json setfiletype json 
 "au! BufRead,BufNewFile vimperator-wiki.hubspotcentral.com.tmp setfiletype confluencewiki 
 "
-au BufNewFile,BufRead *.hbs set filetype=hbs
-
 au! BufRead,BufNewFile *.djml setfiletype htmldjango
 autocmd filetype htmldjango set shiftwidth=2
 autocmd filetype htmldjango set tabstop=2
@@ -172,4 +170,8 @@ nmap <C-L> :tabnext<CR>
 nmap <C-P> :CommandT<CR>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
+
+" adding ctags support
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 

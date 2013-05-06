@@ -81,6 +81,8 @@ export EDITOR='mvim -f'
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/smlnj-110.75/bin"
+export PATH="$PATH:$HOME/yagarto-4.7.2/bin"
+export PATH="$PATH:$HOME/yagarto-4.7.2/tools"
 alias deployer='/Users/aaylward/dev/virtualenvs/fabric_deploy/bin/deployer'
 [[ -s /Users/aaylward/.nvm/nvm.sh ]] && source /Users/aaylward/.nvm/nvm.sh # This loads NVM
 ctags=/usr/local/bin/ctags

@@ -130,6 +130,9 @@ let g:yankring_history_dir='$HOME/.vim-other/yankring'
 " customize pep8 binding
 "let g:pep8_map='<leader>8'
 
+" customize zencoding leader
+let g:user_zen_leader_key = '<c-a>'
+
 " supertab customization
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"

@@ -47,7 +47,7 @@ export COFFEELINT_CONFIG='/Users/aaylward/.coffeelint_config.json'
 
 alias git='hub'
 alias p='python'
-alias v="open \"mvim://open?url=file://$1\""
+alias v='mvim'
 alias i='irb -I .'
 alias sshb='ssh deathjen@deathjenga.com'
 alias woknroll='workon ads_web'
@@ -83,8 +83,11 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/smlnj-110.75/bin"
 export PATH="$PATH:$HOME/yagarto-4.7.2/bin"
 export PATH="$PATH:$HOME/yagarto-4.7.2/tools"
+export PATH="$PATH:$HOME/Downloads/google_appengine"
 alias deployer='/Users/aaylward/dev/virtualenvs/fabric_deploy/bin/deployer'
 [[ -s /Users/aaylward/.nvm/nvm.sh ]] && source /Users/aaylward/.nvm/nvm.sh # This loads NVM
 ctags=/usr/local/bin/ctags
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
+alias deployer='/Users/aaylward/.fabric_deploy_virtualenv/bin/deployer'

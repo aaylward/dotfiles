@@ -154,6 +154,7 @@ autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cpp set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.java set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
 command Dos :%s/\r/\r/g <CR>
 command Wq :wq
@@ -175,5 +176,5 @@ nnoremap <backspace> 10kzz
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>

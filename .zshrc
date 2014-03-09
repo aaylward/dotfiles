@@ -61,13 +61,8 @@ source $ZSH/oh-my-zsh.sh
 export GITHUB_HOST='git.hubteam.com'
 
 #export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin"
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH="$PATH:/usr/local/smlnj-110.75/bin"
-export PATH="$PATH:$HOME/yagarto-4.7.2/bin"
-export PATH="$PATH:$HOME/yagarto-4.7.2/tools"
-export PATH="$PATH:$HOME/Downloads/google_appengine"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/yagarto-4.7.2/bin:$HOME/yagarto-4.7.2/tool:$HOME/Downloads/google_appengines"
 
 # aliases
 source $HOME/.zshaliases

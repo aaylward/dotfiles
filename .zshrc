@@ -80,7 +80,7 @@ export GOPATH="$HOME/.go"
 export COFFEELINT_CONFIG="$HOME/.coffeelint_config.json"
 
 # python
-export PYTHONSTARTUP='$HOME/.pythonrc'
+export PYTHONSTARTUP="$HOME/.pythonrc"
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export WORKON_HOME=~/dev/virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh

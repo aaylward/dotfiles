@@ -11,6 +11,5 @@
 # Use "less -r" as my pager
 #--pager=less
 
-
 --type-set=JS=.js
 --noJS

@@ -167,13 +167,22 @@ command Q :q
 command T :CommandT
 command R :tabnew
 
-" au BufWritePost *.coffee silent CoffeeMake!
+" au BufWritePost *.coffee silent make!
 
 nmap <C-H> :tabprev<CR>
 nmap <C-L> :tabnext<CR>
 nmap <C-P> :CommandT<CR>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
+
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>"
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " adding ctags support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>

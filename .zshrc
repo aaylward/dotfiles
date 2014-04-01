@@ -61,7 +61,7 @@ source $ZSH/oh-my-zsh.sh
 export GITHUB_HOST='git.hubteam.com'
 
 #export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/yagarto-4.7.2/bin:$HOME/yagarto-4.7.2/tool:$HOME/Downloads/google_appengines"
 
 # aliases
@@ -73,8 +73,16 @@ export CLASSPATH="$HOME/.javaclasses:$CLASSPATH"
 export CLASSPATH="$HOME/.javaclasses/mysql-connector-java-ver-bin.jar:$CLASSPATH"
 export GROOVY_HOME='/usr/local/Cellar/groovy/2.0.4/libexec'
 
+#haskell
+export PATH=~/.cabal/bin:$PATH
+
 # go
 export GOPATH="$HOME/.go"
+export GOROOT="/usr/local/Cellar/go/1.2.1/libexec"
+export PATH="$PATH:${GOPATH//://bin:}/bin:$GOROOT/bin"
+
+# erlang
+export ERL_LIBS="$HOME/.erlang_libs"
 
 #coffee
 export COFFEELINT_CONFIG="$HOME/.coffeelint_config.json"

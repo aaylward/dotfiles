@@ -184,6 +184,10 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" ycm options
+let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
 " adding ctags support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

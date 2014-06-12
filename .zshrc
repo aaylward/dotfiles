@@ -57,12 +57,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# git
+git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+
 # ghe
 export GITHUB_HOST='git.hubteam.com'
 
 #export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
-export PATH="$PATH:$HOME/.rvm/bin:$HOME/yagarto-4.7.2/bin:$HOME/yagarto-4.7.2/tool:$HOME/Downloads/google_appengines"
+export PATH="/Users/andy/.rbenv/versions/1.9.3-homebrewed/bin:$PATH"
 
 # aliases
 source $HOME/.zshaliases
@@ -106,3 +109,10 @@ export VISUAL='mvim -f'
 
 source ~/.nvm/nvm.sh
 
+# completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+export HS_BROWSERSTACK_USER='jajoneill'
+export HS_BROWSERSTACK_KEY='fzgXeHZV1xeQDtDcJYRW'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=/usr/local/bin:$PATH

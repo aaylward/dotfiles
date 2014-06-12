@@ -147,10 +147,6 @@ set completeopt=menuone,longest,preview
 "map <S-Space> 
 
 
-" doesn't work in Lion apparently?
-" map <SwipeLeft> :bprev
-" map <SwipeRight> :bnext'''""'"''"
-"
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
@@ -187,6 +183,9 @@ inoremap <right> <nop>
 " ycm options
 let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+"set path=/usr/include/c++/4.2.1
+
+let g:syntastic_cpp_check_header = 1
 
 " adding ctags support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>

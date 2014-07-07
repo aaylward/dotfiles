@@ -1,7 +1,23 @@
 set nocompatible
 
-" first three lines suggested by pathogen
-call pathogen#infect()
+" Required Vundle setup
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kchmck/vim-coffee-script'
+Bundle "mileszs/ack.vim"
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle "scrooloose/nerdtree.git"
+Bundle "fatih/vim-go.git"
+Bundle "othree/eregex.vim.git"
+Bundle "digitaltoad/vim-jade.git"
+Bundle "scrooloose/syntastic.git"
+Bundle 'wting/rust.vim'
+
 syntax on
 filetype plugin indent on
 
@@ -40,14 +56,6 @@ set directory^=$HOME/.vim-other/swap//
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
  
-" File-type highlighting and configuration.
-" Run :filetype (without args) to see what you may have
-" to turn on yourself, or just set them all to be sure.
-syntax on
-filetype on
-filetype plugin on
-filetype indent on
- 
 " Highlight search terms...
 set hlsearch
 set incsearch " ...dynamically as they are typed.
@@ -76,7 +84,7 @@ colorscheme vividchalk
 set guifont=Monaco:h13.00
 
 set nowrap        " don't wrap lines
-set tabstop=2     " a tab is four spaces
+set tabstop=2     " a tab is two spaces
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 " set number        " always show line numbers  "not really that useful
@@ -89,27 +97,17 @@ set expandtab
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**
 
-"source $VIMRUNTIME/gvimrc_example.vim
-"set tabstop=2
 set clipboard=unnamed "uses system clipboard
 set nobackup
 set writebackup
 
-"" set backupdir=$HOME/.vim
 
 autocmd filetype python set shiftwidth=4
 autocmd filetype python set tabstop=4
-" giving up on python line length so commenting this out for now
-"autocmd filetype python set textwidth=99
-
 
 au! BufRead,BufNewFile *.js setfiletype javascript
 autocmd filetype javascript set shiftwidth=2
 autocmd filetype javascript set tabstop=2
-"au BufRead,BufNewFile *.config set filetype=xml
-"au! BufRead,BufNewFile *.ftl setfiletype ftl
-"au! BufRead,BufNewFile *.json setfiletype json 
-"au! BufRead,BufNewFile vimperator-wiki.hubspotcentral.com.tmp setfiletype confluencewiki 
 "
 au! BufRead,BufNewFile *.djml setfiletype htmldjango
 autocmd filetype htmldjango set shiftwidth=2
@@ -117,6 +115,10 @@ autocmd filetype htmldjango set tabstop=2
 
 au! BufRead,BufNewFile *.hbs setfiletype htmldjango
 au! BufRead,BufNewFile *.styl setfiletype css
+
+au! BufRead,BufNewFile *.go setfiletype go
+autocmd filetype go set shiftwidth=8
+autocmd filetype go set tabstop=8
 
 " make it easier to do command line stuff
 nnoremap ; :
@@ -126,9 +128,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " move yankring director to vim-other directory
 let g:yankring_history_dir='$HOME/.vim-other/yankring'
-
-" customize pep8 binding
-"let g:pep8_map='<leader>8'
 
 " customize zencoding leader
 let g:user_zen_leader_key = '<c-a>'
@@ -142,10 +141,6 @@ set completeopt=menuone,longest,preview
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
 
-" make paging work like browsers -- space goes down, shift-space goes up
-"map <Space> 
-"map <S-Space> 
-
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
@@ -155,13 +150,6 @@ autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.java set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
-command Dos :%s/\r/\r/g <CR>
-command Wq :wq
-command WQ :wq
-command W :w
-command Q :q
-command T :CommandT
-command R :tabnew
 
 " au BufWritePost *.coffee silent make!
 

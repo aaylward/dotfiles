@@ -80,9 +80,12 @@ export GROOVY_HOME='/usr/local/Cellar/groovy/2.0.4/libexec'
 export PATH=~/.cabal/bin:$PATH
 
 # go
-export GOPATH="$HOME/.go"
-export GOROOT="/usr/local/Cellar/go/1.2.1/libexec"
-export PATH="$PATH:${GOPATH//://bin:}/bin:$GOROOT/bin"
+export GOROOT="/usr/local/opt/go/libexec"
+export GOPATH="$HOME/git/go:$GOROOT/src"
+launchctl setenv GOPATH $GOPATH
+launchctl setenv GOROOT $GOROOT
+export GOBIN=$HOME/bin
+export PATH=$GOBIN:$PATH:/usr/local/opt/go/libexec/bin:${GOPATH//://bin:}/bin
 
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"

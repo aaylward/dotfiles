@@ -10,16 +10,18 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kchmck/vim-coffee-script'
 Bundle "mileszs/ack.vim"
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
+Bundle 'wincent/command-t'
 Bundle "scrooloose/nerdtree.git"
 Bundle "fatih/vim-go.git"
 Bundle "othree/eregex.vim.git"
 Bundle "digitaltoad/vim-jade.git"
 Bundle "scrooloose/syntastic.git"
 Bundle 'wting/rust.vim'
+Bundle 'Valloric/YouCompleteMe.git'
 
 syntax on
 filetype plugin indent on
+
 
 " more useful mapleader
 let mapleader = ","
@@ -87,7 +89,6 @@ set nowrap        " don't wrap lines
 set tabstop=2     " a tab is two spaces
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
-" set number        " always show line numbers  "not really that useful
 set shiftwidth=2  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
@@ -101,24 +102,14 @@ set clipboard=unnamed "uses system clipboard
 set nobackup
 set writebackup
 
+" language specific formatting stuff
 
-autocmd filetype python set shiftwidth=4
-autocmd filetype python set tabstop=4
-
-au! BufRead,BufNewFile *.js setfiletype javascript
-autocmd filetype javascript set shiftwidth=2
-autocmd filetype javascript set tabstop=2
-"
 au! BufRead,BufNewFile *.djml setfiletype htmldjango
 autocmd filetype htmldjango set shiftwidth=2
 autocmd filetype htmldjango set tabstop=2
 
 au! BufRead,BufNewFile *.hbs setfiletype htmldjango
 au! BufRead,BufNewFile *.styl setfiletype css
-
-au! BufRead,BufNewFile *.go setfiletype go
-autocmd filetype go set shiftwidth=8
-autocmd filetype go set tabstop=8
 
 " make it easier to do command line stuff
 nnoremap ; :
@@ -129,18 +120,17 @@ cmap w!! w !sudo tee % >/dev/null
 " move yankring director to vim-other directory
 let g:yankring_history_dir='$HOME/.vim-other/yankring'
 
-" customize zencoding leader
-let g:user_zen_leader_key = '<c-a>'
-
 " supertab customization
-au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+set omnifunc=syntaxcomplete#Complete
 
 " turns underscore into a word boundary
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
 
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
@@ -150,6 +140,8 @@ autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.java set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
 
 " au BufWritePost *.coffee silent make!
 
@@ -168,16 +160,12 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" ycm options
-let g:ycm_global_ycm_extra_conf = '$HOME/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-"set path=/usr/include/c++/4.2.1
-
 let g:syntastic_cpp_check_header = 1
 
-" adding ctags support
+" ctags support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+

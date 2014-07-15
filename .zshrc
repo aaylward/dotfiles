@@ -119,3 +119,5 @@ export HS_BROWSERSTACK_KEY='fzgXeHZV1xeQDtDcJYRW'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=/usr/local/bin:$PATH
+
+alias deployer='/Users/andy/.fabric_deploy_virtualenv/bin/deployer'

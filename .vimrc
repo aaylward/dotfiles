@@ -129,8 +129,8 @@ set omnifunc=syntaxcomplete#Complete
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
 
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
@@ -151,14 +151,6 @@ nmap <C-P> :CommandT<CR>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>"
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 let g:syntastic_cpp_check_header = 1
 

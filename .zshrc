@@ -64,14 +64,14 @@ git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Cr
 export GITHUB_HOST='git.hubteam.com'
 
 #export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
+export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
 export PATH="/Users/andy/.rbenv/versions/1.9.3-homebrewed/bin:$PATH"
 
 # aliases
 source $HOME/.zshaliases
 
 # java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export CLASSPATH="$HOME/.javaclasses:$CLASSPATH"
 export CLASSPATH="$HOME/.javaclasses/mysql-connector-java-ver-bin.jar:$CLASSPATH"
 export GROOVY_HOME='/usr/local/Cellar/groovy/2.0.4/libexec'
@@ -118,6 +118,5 @@ export HS_BROWSERSTACK_USER='jajoneill'
 export HS_BROWSERSTACK_KEY='fzgXeHZV1xeQDtDcJYRW'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=/usr/local/bin:$PATH
 
 alias deployer='/Users/andy/.fabric_deploy_virtualenv/bin/deployer'

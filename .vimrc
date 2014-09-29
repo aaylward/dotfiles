@@ -54,6 +54,7 @@ set scrolloff=3
 " set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory^=$HOME/.vim-other/swap//
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
@@ -96,7 +97,7 @@ set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
 set expandtab
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**
+set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
 
 set clipboard=unnamed "uses system clipboard
 set nobackup

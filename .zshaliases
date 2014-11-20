@@ -9,6 +9,7 @@ alias v='mvim'
 alias i='irb -I .'
 alias hubspot='fab -f ~/dev/src/workstation_setup/fabfile.py'
 alias deployer="$HOME/.fabric_deploy_virtualenv/bin/deployer"
+alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
 
 # mkdir, cd into it
 mkcd () {

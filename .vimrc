@@ -17,6 +17,7 @@ Bundle "othree/eregex.vim.git"
 Bundle "digitaltoad/vim-jade.git"
 Bundle "scrooloose/syntastic.git"
 Bundle 'wting/rust.vim'
+Plugin 'airblade/vim-gitgutter'
 Bundle 'Valloric/YouCompleteMe.git'
 
 syntax on
@@ -53,8 +54,12 @@ set scrolloff=3
 " Put all backup files in a single spot
 " set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set noswapfile
 set directory^=$HOME/.vim-other/swap//
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" nerd
+autocmd vimenter * NERDTree
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start

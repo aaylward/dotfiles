@@ -111,6 +111,7 @@ export SVN_EDITOR='mvim -f'
 export VISUAL='mvim -f'
 
 source ~/.nvm/nvm.sh
+source ~/.aws.sh
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -119,4 +120,3 @@ export HS_BROWSERSTACK_KEY='fzgXeHZV1xeQDtDcJYRW'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-alias deployer='/Users/andy/.fabric_deploy_virtualenv/bin/deployer'

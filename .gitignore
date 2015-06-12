@@ -1,2 +1,5 @@
 .aws.sh
-
+node_modules
+.idea
+*.swp
+git

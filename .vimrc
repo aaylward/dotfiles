@@ -1,9 +1,8 @@
 set nocompatible
-
-" Required Vundle setup
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
@@ -22,6 +21,11 @@ Plugin 'mtscout6/vim-cjsx'
 Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'Keithbsmiley/swift.vim.git'
+Bundle "wookiehangover/jshint.vim"
+Bundle 'geekjuice/vim-mocha'
+
+call vundle#end()
 
 syntax on
 filetype plugin indent on
@@ -159,7 +163,16 @@ nnoremap <backspace> 10kzz
 
 
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_ocaml_checkers = ['merlin']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+"autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
+
+let g:syntastic_ocaml_checkers = ['merlin']
+
 

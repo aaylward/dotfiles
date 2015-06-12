@@ -18,7 +18,10 @@ Bundle "digitaltoad/vim-jade.git"
 Bundle "scrooloose/syntastic.git"
 Bundle 'wting/rust.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mtscout6/vim-cjsx'
 Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'tikhomirov/vim-glsl'
+Bundle 'scrooloose/nerdcommenter'
 
 syntax on
 filetype plugin indent on
@@ -143,13 +146,10 @@ autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cpp set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
-autocmd BufEnter *.java set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
-
-" au BufWritePost *.coffee silent make!
 
 nmap <C-H> :tabprev<CR>
 nmap <C-L> :tabnext<CR>
@@ -159,10 +159,6 @@ nnoremap <backspace> 10kzz
 
 
 let g:syntastic_cpp_check_header = 1
-
-" ctags support
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>

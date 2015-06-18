@@ -24,6 +24,15 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'Keithbsmiley/swift.vim.git'
 Bundle "wookiehangover/jshint.vim"
 Bundle 'geekjuice/vim-mocha'
+Bundle 'tpope/vim-salve.git'
+Bundle 'tpope/vim-projectionist.git'
+Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-fireplace.git'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
+Bundle 'guns/vim-sexp.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
 
 call vundle#end()
 
@@ -175,4 +184,8 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 let g:syntastic_ocaml_checkers = ['merlin']
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 

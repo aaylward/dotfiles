@@ -33,6 +33,8 @@ Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
 Bundle 'guns/vim-sexp.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ajhager/elm-vim'
 
 call vundle#end()
 

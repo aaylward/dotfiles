@@ -1,9 +1,8 @@
 set nocompatible
-
-" Required Vundle setup
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
@@ -18,7 +17,26 @@ Bundle "digitaltoad/vim-jade.git"
 Bundle "scrooloose/syntastic.git"
 Bundle 'wting/rust.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mtscout6/vim-cjsx'
 Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'tikhomirov/vim-glsl'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Keithbsmiley/swift.vim.git'
+Bundle "wookiehangover/jshint.vim"
+Bundle 'geekjuice/vim-mocha'
+Bundle 'tpope/vim-salve.git'
+Bundle 'tpope/vim-projectionist.git'
+Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-fireplace.git'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
+Bundle 'guns/vim-sexp.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ajhager/elm-vim'
+
+call vundle#end()
 
 syntax on
 filetype plugin indent on
@@ -143,13 +161,10 @@ autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cpp set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
-autocmd BufEnter *.java set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
-
-" au BufWritePost *.coffee silent make!
 
 nmap <C-H> :tabprev<CR>
 nmap <C-L> :tabnext<CR>
@@ -159,11 +174,20 @@ nnoremap <backspace> 10kzz
 
 
 let g:syntastic_cpp_check_header = 1
-
-" ctags support
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+let g:syntastic_ocaml_checkers = ['merlin']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+"autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
+
+let g:syntastic_ocaml_checkers = ['merlin']
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 

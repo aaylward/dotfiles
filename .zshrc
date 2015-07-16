@@ -13,10 +13,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Cr
 export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin"
 export PATH="$PATH:$HOME/.rvm/bin"
 
-#export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/X11/bin:/Applications/Racket\ v5.3/bin:$HOME/Library/Haskell/bin"
-export PATH="/Users/andy/.rbenv/versions/1.9.3-homebrewed/bin:$PATH"
-
 source $HOME/git/dotfiles/.zshaliases
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

@@ -161,6 +161,7 @@ autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.cpp set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.elm set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql

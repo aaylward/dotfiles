@@ -5,6 +5,8 @@ alias p='python'
 alias v='mvim'
 alias i='irb -I .'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
+alias sdup='sudo kextload -b com.apple.driver.AppleSDXC'
+alias mscheme='rlwrap mit-scheme'
 
 # mkdir, cd into it
 mkcd () {

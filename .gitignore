@@ -4,3 +4,4 @@ node_modules
 *.swp
 git
 .vim
+/NetBeansProjects/WeeChess/nbproject/private/

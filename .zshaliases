@@ -1,11 +1,11 @@
 alias vi='mvim -v'
 alias fucking='sudo'
 alias ctags='/usr/local/bin/ctags'
-alias git='hub'
 alias p='python'
 alias v='mvim'
 alias i='irb -I .'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
+alias mscheme='rlwrap mit-scheme'
 
 # mkdir, cd into it
 mkcd () {

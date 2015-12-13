@@ -165,6 +165,7 @@ autocmd BufEnter *.elm set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.rs set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
 
 nmap <C-H> :tabprev<CR>

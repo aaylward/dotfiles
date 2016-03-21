@@ -4,25 +4,20 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kchmck/vim-coffee-script'
 Bundle "mileszs/ack.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
 Bundle "scrooloose/nerdtree.git"
-Bundle "fatih/vim-go.git"
 Bundle "othree/eregex.vim.git"
-Bundle "digitaltoad/vim-jade.git"
 Bundle "scrooloose/syntastic.git"
-Bundle 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mtscout6/vim-cjsx'
 Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Keithbsmiley/swift.vim.git'
-Bundle "wookiehangover/jshint.vim"
 Bundle 'geekjuice/vim-mocha'
 Bundle 'tpope/vim-salve.git'
 Bundle 'tpope/vim-projectionist.git'
@@ -158,8 +153,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
-autocmd BufEnter *.c set ai sw=4 ts=4 sta et fo=croql
-autocmd BufEnter *.cpp set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.c set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.cpp set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.elm set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql

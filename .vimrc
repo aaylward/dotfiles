@@ -171,7 +171,7 @@ nnoremap <backspace> 10kzz
 
 
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_ocaml_checkers = ['merlin']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>

@@ -43,6 +43,18 @@ export VISUAL='mvim -f'
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+function get_java_build_artifact {
+  project_name=$(pwd | rev | cut -d'/' -f-1 | rev);
+  echo "target/"$project_name"-1.0-SNAPSHOT-shaded.jar"
+}
+
+function pi_deploy_java {
+  scp $(get_java_build_artifact) pi@tippypi.local:/home/pi
+}
+
+function pi_deploy {
+  `pi_deploy_$1`
+}
 
 # OPAM configuration
 . /Users/andy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

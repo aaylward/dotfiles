@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kchmck/vim-coffee-script'
-Bundle "mileszs/ack.vim"
+Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
 Bundle "scrooloose/nerdtree.git"

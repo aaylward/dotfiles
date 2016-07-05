@@ -182,6 +182,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
 
 let g:syntastic_ocaml_checkers = ['merlin']
+let g:ycm_confirm_extra_conf = 0
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

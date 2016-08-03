@@ -30,6 +30,7 @@ Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ajhager/elm-vim'
+Plugin 'dleonard0/pony-vim-syntax'
 
 call vundle#end()
 

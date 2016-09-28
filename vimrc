@@ -31,6 +31,8 @@ Bundle 'tpope/vim-surround.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ajhager/elm-vim'
 Plugin 'dleonard0/pony-vim-syntax'
+Plugin 'vim-erlang/vim-erlang-compiler'
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
 call vundle#end()
 

@@ -10,9 +10,10 @@ source $ZSH/oh-my-zsh.sh
 # git
 git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
-export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/smlnj/bin"
+export PATH="$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/smlnj/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
 
 source $HOME/git/dotfiles/.zshaliases
 

@@ -15,7 +15,7 @@ Bundle "othree/eregex.vim.git"
 Bundle "scrooloose/syntastic.git"
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
-Bundle 'Valloric/YouCompleteMe.git'
+Plugin 'Valloric/YouCompleteMe.git'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'geekjuice/vim-mocha'

@@ -15,7 +15,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
 
-source $HOME/git/dotfiles/.zshaliases
+source $HOME/git/dotfiles/zshaliases
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 

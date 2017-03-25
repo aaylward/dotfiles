@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'kchmck/vim-coffee-script'
 Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
@@ -33,12 +32,12 @@ Plugin 'ajhager/elm-vim'
 Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
+Plugin '4Evergreen4/vim-hardy.git'
 
 call vundle#end()
 
 syntax on
 filetype plugin indent on
-
 
 " more useful mapleader
 let mapleader = ","
@@ -105,7 +104,7 @@ set visualbell  " somehow this turns off the audio bell-- no idea why
 
 colorscheme vividchalk
 "set guifont="BitStream Vera Sans Mono 11"
-set guifont=Monaco:h13.00
+set guifont=Menlo:h13.00
 
 set nowrap        " don't wrap lines
 set tabstop=2     " a tab is two spaces
@@ -142,22 +141,19 @@ cmap w!! w !sudo tee % >/dev/null
 " move yankring director to vim-other directory
 let g:yankring_history_dir='$HOME/.vim-other/yankring'
 
-" supertab customization
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-set omnifunc=syntaxcomplete#Complete
-
 " turns underscore into a word boundary
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.cpp set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.cc set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.elm set ai sw=2 ts=2 sta et fo=croql
 autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
@@ -185,7 +181,6 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
 
 let g:syntastic_ocaml_checkers = ['merlin']
-let g:ycm_confirm_extra_conf = 0
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

@@ -1,5 +1,6 @@
 alias vi='mvim -v'
 alias fucking='sudo'
+alias ください='sudo'
 alias ctags='/usr/local/bin/ctags'
 alias p='python'
 alias v='mvim'

@@ -14,7 +14,10 @@ Bundle "othree/eregex.vim.git"
 Bundle "scrooloose/syntastic.git"
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'tomlion/vim-solidity'
+" Plugin 'Valloric/YouCompleteMe.git'
+" Plugin 'lifepillar/vim-mucomplete'
+Plugin 'justmao945/vim-clang'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'geekjuice/vim-mocha'
@@ -98,7 +101,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set shortmess=atI
 
 " no audio bell
-" set visualbell  " annoying
 set noerrorbells
 set visualbell  " somehow this turns off the audio bell-- no idea why
 
@@ -145,10 +147,6 @@ let g:yankring_history_dir='$HOME/.vim-other/yankring'
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
-
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 autocmd BufEnter *.c set ai sw=2 ts=2 sta et fo=croql
@@ -168,22 +166,57 @@ nmap <C-P> :CommandT<CR>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 
-
-let g:syntastic_cpp_check_header = 1
+" let g:syntastic_cpp_check_header = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
-"autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
-
-let g:syntastic_ocaml_checkers = ['merlin']
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" vim-clang
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+let g:clang_auto = 0
+" default 'longest' can not work with neocomplete
+let g:clang_c_completeopt = 'menuone'
+let g:clang_cpp_completeopt = 'menuone'
+let g:clang_debug = 5 
+let g:clang_exec = '/usr/bin/clang'
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+" for c and c++
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+" mucomplete
+" set noshowmode shortmess+=c
+" set noinfercase
+" set completeopt-=preview
+" set completeopt+=menuone,noinsert,noselect
+" let g:clang_library_path = '/usr/local/Cellar/llvm/4.0.0/lib/libclang.dylib'
+" let g:clang_user_options = '-std=c11'
+" let g:mucomplete#enable_auto_at_startup = 1
+
+" neocomplete???
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#enable_auto_select = 1
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
+
+" YouCompleteMe
+" let g:ycm_auto_trigger = 1
+" let g:ycm_confirm_extra_conf = 0
+" let g:ycm_min_num_of_chars_for_completion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 

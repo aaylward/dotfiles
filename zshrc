@@ -10,7 +10,7 @@ source $ZSH/oh-my-zsh.sh
 # git
 git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
-export PATH="$PATH:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/smlnj/bin"
+export PATH="$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/smlnj/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
@@ -18,6 +18,7 @@ export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
 source $HOME/git/dotfiles/zshaliases
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export M2_HOME="`brew --prefix maven`/libexec"
 
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"
@@ -26,12 +27,11 @@ export ERL_LIBS="$HOME/.erlang_libs"
 export COFFEELINT_CONFIG="$HOME/git/dotfiles/.coffeelint_config.json"
 
 # python
-export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-export WORKON_HOME=~/dev/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-export PIP_VIRTUALENV_BASE=
-export PIP_RESPECT_VIRTUALENV=true
+#export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
+#export WORKON_HOME=~/dev/virtualenvs
+#source /usr/local/bin/virtualenvwrapper.sh
+#export PIP_VIRTUALENV_BASE=
+#export PIP_RESPECT_VIRTUALENV=true
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig/
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -43,6 +43,7 @@ export VISUAL='mvim -f'
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+export PATH="$HOME/.cargo/bin:$PATH"
 
 function get_java_build_artifact {
   project_name=$(pwd | rev | cut -d'/' -f-1 | rev);

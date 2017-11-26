@@ -6,28 +6,27 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
 Bundle "scrooloose/nerdtree.git"
 Bundle "othree/eregex.vim.git"
-Bundle "scrooloose/syntastic.git"
+" Bundle "scrooloose/syntastic.git"
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tomlion/vim-solidity'
-" Plugin 'Valloric/YouCompleteMe.git'
+" Plugin 'tomlion/vim-solidity'
+Plugin 'Valloric/YouCompleteMe.git'
 " Plugin 'lifepillar/vim-mucomplete'
-Plugin 'justmao945/vim-clang'
+" Plugin 'justmao945/vim-clang'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'geekjuice/vim-mocha'
+" Bundle 'geekjuice/vim-mocha'
 Bundle 'tpope/vim-salve.git'
 Bundle 'tpope/vim-projectionist.git'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-fireplace.git'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
 Bundle 'guns/vim-sexp.git'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Plugin 'elixir-lang/vim-elixir'
@@ -167,7 +166,7 @@ nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 
 " let g:syntastic_cpp_check_header = 1
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -177,46 +176,10 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" vim-clang
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-let g:clang_auto = 0
-" default 'longest' can not work with neocomplete
-let g:clang_c_completeopt = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-let g:clang_debug = 5 
-let g:clang_exec = '/usr/bin/clang'
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-endif
-" for c and c++
-let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-" mucomplete
-" set noshowmode shortmess+=c
-" set noinfercase
-" set completeopt-=preview
-" set completeopt+=menuone,noinsert,noselect
-" let g:clang_library_path = '/usr/local/Cellar/llvm/4.0.0/lib/libclang.dylib'
-" let g:clang_user_options = '-std=c11'
-" let g:mucomplete#enable_auto_at_startup = 1
-
-" neocomplete???
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#enable_auto_select = 1
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-
 " YouCompleteMe
-" let g:ycm_auto_trigger = 1
-" let g:ycm_confirm_extra_conf = 0
-" let g:ycm_min_num_of_chars_for_completion = 1
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 

@@ -20,6 +20,9 @@ source $HOME/git/dotfiles/zshaliases
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export M2_HOME="`brew --prefix maven`/libexec"
 
+export OPENSSL_INCLUDE_DIR="$(brew --prefix openssl)/include"
+export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"
+
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"
 
@@ -27,11 +30,11 @@ export ERL_LIBS="$HOME/.erlang_libs"
 export COFFEELINT_CONFIG="$HOME/git/dotfiles/.coffeelint_config.json"
 
 # python
-#export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
-#export WORKON_HOME=~/dev/virtualenvs
-#source /usr/local/bin/virtualenvwrapper.sh
-#export PIP_VIRTUALENV_BASE=
-#export PIP_RESPECT_VIRTUALENV=true
+export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
+export WORKON_HOME=~/dev/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_VIRTUALENV_BASE=
+export PIP_RESPECT_VIRTUALENV=true
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig/
 
 if [[ -n $SSH_CONNECTION ]]; then

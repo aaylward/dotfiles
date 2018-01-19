@@ -30,6 +30,6 @@ source ~/.zshrc
 
 if [ ! -f ~/.vimrc ]; then
     echo "source $HOME/git/dotfiles/vimrc" > ~/.vimrc
+    vim +PluginInstall +qall
 fi
 
-vim +PluginInstall +qall

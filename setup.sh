@@ -32,5 +32,3 @@ if [ ! -f ~/.vimrc ]; then
     echo "source $HOME/git/dotfiles/vimrc" > ~/.vimrc
 fi
 
-echo "source $HOME/git/dotfiles/vimrc" > ~/.vimrc
-

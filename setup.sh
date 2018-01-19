@@ -10,5 +10,9 @@ mkdir -p ~/.vim/colors
 cp ~/git/vividchalk/colors/vividchalk.vim ~/.vim/colors
 cp ~/git/dotfiles/.zshrc ~
 
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
+    ssh-keygen
+fi
+
 echo "source $HOME/git/dotfiles/vimrc" > ~/.vimrc
 

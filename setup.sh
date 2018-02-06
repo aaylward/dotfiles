@@ -2,7 +2,7 @@
 
 sudo apt update && sudo apt -y upgrade
 sudo apt -y install curl git cmake build-essential python-dev python3-dev \
-  ninja-build vim vim-gtk3 zsh htop tree gnome-tweak-tool wmctrl
+  ninja-build vim vim-gtk3 zsh htop tree gnome-tweak-tool wmctrl xcape
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 

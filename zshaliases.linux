@@ -1,0 +1,21 @@
+alias vi='gvim'
+alias fucking='sudo'
+alias ください='sudo'
+alias ctags='/usr/local/bin/ctags'
+alias p='python'
+alias v='gvim'
+alias i='irb -I .'
+alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
+alias mscheme='rlwrap mit-scheme'
+
+# mkdir, cd into it
+mkcd () {
+    mkdir -p "$*"
+    cd "$*"
+}
+
+function image_pi_sd {
+  touch "$1/ssh"
+  echo "\ndtoverlay=dwc2\n" >> "$1/config.txt"
+  sed -i '' 's/rootwait/& modules-load=dwc2,g_ether/' "$1/cmdline.txt"
+}

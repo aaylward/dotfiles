@@ -13,7 +13,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Cr
 export PATH="$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/smlnj/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
-source $HOME/git/dotfiles/zshaliases
+source $HOME/git/dotfiles/zshaliases.linux
 
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 # export M2_HOME="`brew --prefix maven`/libexec"

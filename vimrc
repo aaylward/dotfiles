@@ -104,8 +104,8 @@ set noerrorbells
 set visualbell  " somehow this turns off the audio bell-- no idea why
 
 colorscheme vividchalk
-"set guifont="BitStream Vera Sans Mono 11"
-set guifont=Menlo:h13.00
+set guifont=BitStream\ Vera\ Sans\ Mono\ 12"
+" set guifont=Menlo:h13.00
 
 set nowrap        " don't wrap lines
 set tabstop=2     " a tab is two spaces

@@ -49,3 +49,7 @@ if [ ! -f ~/.vimrc ]; then
     vim +PluginInstall +qall
 fi
 
+# Make sure /etc/default/grub LINUX= line contains `resume=/dev/mapper/fedora-swap`
+# if it doesn't, add it, then do `sudo grub2-mkconfig > /etc/grub2-efi.cfg`
+# of course, don't forget `sudo dracut --regenerate-all --force`
+

@@ -1,20 +1,27 @@
 #!/bin/bash
 
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install gcc ghc curl git make automake cmake gvim perf powertop python-devel zsh gnome-tweak-tool clang xcape
+sudo dnf upgrade
+sudo dnf install gcc ghc curl git make automake kernel-devel cmake gvim perf powertop python-devel python3-devel zsh gnome-tweak-tool clang xcape htop ffmpeg 
+
+# setup shell
+chsh -s /usr/bin/zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # make video in firefox work
 sudo dnf install ffmpeg-libs compat-ffmpeg28
 
+# for Signal-Desktop
+sudo dnf install libXScrnSaver
+
 # make YouCompleteMe work without --system-clang
 sudo dnf install ncurses-compat-libs
 
+#node stuff
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 nvm install --lts
-
-# make building and running Signal-Desktop possible
-sudo dnf install libXScrnSaver
 npm i -g yarn
+npm i -g tldr
 
 # How to solve SELinux problems with expressvpn?
 # sudo semanage fcontext -a -t net_conf_t /var/lib/expressvpn/resolv.conf
@@ -34,11 +41,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone git@github.com:aaylward/dotfiles.git ~/src/dotfiles
 git clone git@github.com:tpope/vim-vividchalk.git ~/src/vividchalk
 
-chsh -s /usr/bin/zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 mkdir -p ~/.vim/colors
 cp ~/src/vividchalk/colors/vividchalk.vim ~/.vim/colors
-cp ~/src/dotfiles/.zshrc ~
+cp ~/src/dotfiles/.zshrc-linux ~
 
 source ~/.zshrc
 

@@ -17,14 +17,14 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone git@github.com:aaylward/dotfiles.git ~/git/dotfiles
-git clone git@github.com:tpope/vim-vividchalk.git ~/git/vividchalk
+git clone git@github.com:aaylward/dotfiles.git ~/src/dotfiles
+git clone git@github.com:tpope/vim-vividchalk.git ~/src/vividchalk
 
 chsh -s /usr/bin/zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 mkdir -p ~/.vim/colors
-cp ~/git/vividchalk/colors/vividchalk.vim ~/.vim/colors
-cp ~/git/dotfiles/.zshrc ~
+cp ~/src/vividchalk/colors/vividchalk.vim ~/.vim/colors
+cp ~/src/dotfiles/.zshrc ~
 
 source ~/.zshrc
 

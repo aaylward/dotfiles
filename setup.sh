@@ -29,7 +29,7 @@ cp ~/src/dotfiles/.zshrc ~
 source ~/.zshrc
 
 if [ ! -f ~/.vimrc ]; then
-    echo "source $HOME/git/dotfiles/vimrc" > ~/.vimrc
+    echo "source $HOME/src/dotfiles/vimrc" > ~/.vimrc
     vim +PluginInstall +qall
 fi
 

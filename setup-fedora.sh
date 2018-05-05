@@ -1,21 +1,21 @@
 #!/bin/bash
 
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf upgrade
-sudo dnf install gcc ghc curl git make automake kernel-devel cmake gvim perf powertop python-devel python3-devel zsh gnome-tweak-tool clang xcape htop ffmpeg 
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf upgrade -y
+sudo dnf install -y gcc ghc curl git make automake kernel-devel cmake vim gvim perf powertop python-devel python3-devel zsh gnome-tweak-tool clang xcape htop ffmpeg 
 
 # setup shell
 chsh -s /usr/bin/zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # make video in firefox work
-sudo dnf install ffmpeg-libs compat-ffmpeg28
+sudo dnf install -y ffmpeg-libs compat-ffmpeg28
 
 # for Signal-Desktop
-sudo dnf install libXScrnSaver
+sudo dnf install -y libXScrnSaver
 
 # make YouCompleteMe work without --system-clang
-sudo dnf install ncurses-compat-libs
+sudo dnf install -y ncurses-compat-libs
 
 #node stuff
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
@@ -43,7 +43,7 @@ git clone git@github.com:tpope/vim-vividchalk.git ~/src/vividchalk
 
 mkdir -p ~/.vim/colors
 cp ~/src/vividchalk/colors/vividchalk.vim ~/.vim/colors
-cp ~/src/dotfiles/.zshrc-linux ~
+cp ~/src/dotfiles/.zshrc-linux ~/.zshrc
 
 source ~/.zshrc
 

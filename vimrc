@@ -35,6 +35,8 @@ Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin '4Evergreen4/vim-hardy.git'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
@@ -193,3 +195,17 @@ let g:ycm_semantic_triggers =  {
   \   'erlang' : [':'],
   \ }
 
+" Highlight Class and Function names
+" Ripped off from https://github.com/Valloric/YouCompleteMe/issues/1232#issuecomment-62077297
+function! s:HighlightFunctionsAndClasses()
+  syn match cCustomFunc      "\w\+\s*\((\)\@="
+  syn match cCustomClass     "\w\+\s*\(::\)\@="
+
+  hi def link cCustomFunc      Function
+  hi def link cCustomClass     Function
+endfunction
+
+" TODO: this should:
+" a) not be called for every filetype
+" b) be in a separate plugin
+au Syntax * call s:HighlightFunctionsAndClasses()

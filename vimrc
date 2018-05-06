@@ -122,7 +122,8 @@ set expandtab
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
 
-set clipboard=unnamed "uses system clipboard
+set clipboard+=unnamed "uses system clipboard
+set clipboard+=unnamedplus " also copy to 
 set nobackup
 set writebackup
 

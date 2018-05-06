@@ -128,6 +128,9 @@ set clipboard+=unnamedplus " also copy to
 set nobackup
 set writebackup
 
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+
 " language specific formatting stuff
 
 au! BufRead,BufNewFile *.djml setfiletype htmldjango

@@ -37,6 +37,7 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin '4Evergreen4/vim-hardy.git'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'christophermca/meta5'
 
 call vundle#end()
 

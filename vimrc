@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
+Plugin 'cespare/vim-toml'
 Bundle "scrooloose/nerdtree.git"
 Bundle "othree/eregex.vim.git"
 " Bundle "scrooloose/syntastic.git"
@@ -201,6 +202,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  \   'rust' : ['.', '::', 're![_a-zA-z0-9]'],
   \   'ocaml' : ['.', '#'],
   \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
   \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],

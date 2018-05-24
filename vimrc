@@ -16,11 +16,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'tomlion/vim-solidity'
 Plugin 'Valloric/YouCompleteMe.git'
-" Plugin 'lifepillar/vim-mucomplete'
-" Plugin 'justmao945/vim-clang'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
-" Bundle 'geekjuice/vim-mocha'
 Bundle 'tpope/vim-salve.git'
 Bundle 'tpope/vim-projectionist.git'
 Bundle 'tpope/vim-dispatch.git'
@@ -38,7 +35,6 @@ Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin '4Evergreen4/vim-hardy.git'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'christophermca/meta5'
 
 call vundle#end()
 
@@ -133,22 +129,12 @@ set expandtab
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
 
-set clipboard+=unnamed "uses system clipboard
-set clipboard+=unnamedplus " also copy to 
+set clipboard=unnamedplus
 set nobackup
 set writebackup
 
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
-
-" language specific formatting stuff
-
-au! BufRead,BufNewFile *.djml setfiletype htmldjango
-autocmd filetype htmldjango set shiftwidth=2
-autocmd filetype htmldjango set tabstop=2
-
-au! BufRead,BufNewFile *.hbs setfiletype htmldjango
-au! BufRead,BufNewFile *.styl setfiletype css
 
 " make it easier to do command line stuff
 nnoremap ; :

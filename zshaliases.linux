@@ -7,6 +7,7 @@ alias v='gvim'
 alias i='irb -I .'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
 alias mscheme='rlwrap mit-scheme'
+alias open='xdg-open'
 
 # mkdir, cd into it
 mkcd () {

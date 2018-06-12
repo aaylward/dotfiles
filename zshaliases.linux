@@ -1,5 +1,3 @@
-alias fucking='sudo'
-alias ください='sudo'
 alias rm=’rm -i’
 alias v='gvim'
 alias vi='gvim'

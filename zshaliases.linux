@@ -1,12 +1,9 @@
-alias vi='gvim'
 alias fucking='sudo'
 alias ください='sudo'
-alias ctags='/usr/local/bin/ctags'
-alias p='python'
+alias rm=’rm -i’
 alias v='gvim'
-alias i='irb -I .'
+alias vi='gvim'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
-alias mscheme='rlwrap mit-scheme'
 alias open='xdg-open'
 
 # mkdir, cd into it

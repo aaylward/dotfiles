@@ -4,6 +4,9 @@ sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 sudo dnf upgrade -y
 sudo dnf install -y gcc ghc curl git make automake kernel-devel cmake vim gvim perf powertop python-devel python3-devel zsh gnome-tweak-tool clang xcape htop ffmpeg 
 
+# stuff for JUCE apps
+sudo dnf install -y curl-devel webkitgtk4-devel alsa-lib alsa-lib-devel
+
 # setup shell
 chsh -s /usr/bin/zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

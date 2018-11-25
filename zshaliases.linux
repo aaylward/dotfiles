@@ -1,4 +1,4 @@
-alias rm=’rm -i’
+alias rm='rm -i'
 alias v='gvim'
 alias vi='gvim'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'

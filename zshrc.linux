@@ -16,7 +16,7 @@ export PATH="$PATH:$HOME/.local/bin"
 source $HOME/src/dotfiles/zshaliases.linux
 
 #export JAVA_HOME="/usr/lib/jvm/default-java"
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.1.13-4.fc29.x86_64"
+export JAVA_HOME="/usr/local/jdk-11.0.1"
 # export M2_HOME="`brew --prefix maven`/libexec"
 
 export PATH=$PATH:$JAVA_HOME/bin

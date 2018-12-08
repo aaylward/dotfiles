@@ -33,3 +33,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+golibs="-lm"
+goflags="-g -Wall -Werror -include $HOME/src/dotfiles/common.h -O3"
+alias cc_c="cc -xc -std=c11 - $golibs $goflags"
+alias run_c="cc -xc -std=c11 - $golibs $goflags && ./a.out && rm -f a.out"

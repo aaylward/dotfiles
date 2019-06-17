@@ -17,7 +17,7 @@ export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
 
 source $HOME/git/dotfiles/zshaliases
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
 
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"
@@ -27,10 +27,7 @@ export COFFEELINT_CONFIG="$HOME/git/dotfiles/.coffeelint_config.json"
 
 # python
 export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-export WORKON_HOME=~/dev/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-export PIP_VIRTUALENV_BASE=
+#export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export PIP_RESPECT_VIRTUALENV=true
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig/
 
@@ -40,9 +37,6 @@ else
   export EDITOR='mvim -f'
 fi
 export VISUAL='mvim -f'
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 function get_java_build_artifact {
   project_name=$(pwd | rev | cut -d'/' -f-1 | rev);

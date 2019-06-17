@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-vividchalk'
 Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'

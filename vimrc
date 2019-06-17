@@ -10,22 +10,23 @@ Bundle 'tpope/vim-vividchalk'
 Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'wincent/command-t'
+Plugin 'cespare/vim-toml'
 Bundle "scrooloose/nerdtree.git"
 Bundle "othree/eregex.vim.git"
-Bundle "scrooloose/syntastic.git"
+" Bundle "scrooloose/syntastic.git"
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
+" Plugin 'tomlion/vim-solidity'
 Plugin 'Valloric/YouCompleteMe.git'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'geekjuice/vim-mocha'
 Bundle 'tpope/vim-salve.git'
 Bundle 'tpope/vim-projectionist.git'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'tpope/vim-fireplace.git'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
 Bundle 'guns/vim-sexp.git'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Plugin 'elixir-lang/vim-elixir'
@@ -34,6 +35,8 @@ Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 Plugin '4Evergreen4/vim-hardy.git'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
@@ -63,6 +66,15 @@ set smartcase
 
 " Make title visible in vim
 set title
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " Show 2 more lines on scroll edges
 set scrolloff=3
@@ -99,13 +111,12 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set shortmess=atI
 
 " no audio bell
-" set visualbell  " annoying
 set noerrorbells
 set visualbell  " somehow this turns off the audio bell-- no idea why
 
 colorscheme vividchalk
-"set guifont="BitStream Vera Sans Mono 11"
-set guifont=Menlo:h13.00
+set guifont=BitStream\ Vera\ Sans\ Mono\ 12"
+" set guifont=Menlo:h13.00
 
 set nowrap        " don't wrap lines
 set tabstop=2     " a tab is two spaces
@@ -120,18 +131,12 @@ set expandtab
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
 
-set clipboard=unnamed "uses system clipboard
+set clipboard=unnamedplus
 set nobackup
 set writebackup
 
-" language specific formatting stuff
-
-au! BufRead,BufNewFile *.djml setfiletype htmldjango
-autocmd filetype htmldjango set shiftwidth=2
-autocmd filetype htmldjango set tabstop=2
-
-au! BufRead,BufNewFile *.hbs setfiletype htmldjango
-au! BufRead,BufNewFile *.styl setfiletype css
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
 
 " make it easier to do command line stuff
 nnoremap ; :
@@ -145,10 +150,6 @@ let g:yankring_history_dir='$HOME/.vim-other/yankring'
 " turns underscore into a word boundary
 " http://superuser.com/questions/244040/how-do-i-change-until-the-next-underscore-in-vim
 " set iskeyword-=_  " turned off cuz it was causing syntax highlighting fuckups
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
 
 set nu
 autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
@@ -169,22 +170,46 @@ nmap <C-P> :CommandT<CR>
 nnoremap <space> 10jzz
 nnoremap <backspace> 10kzz
 
-
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_cpp_check_header = 1
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
-"autocmd FileType ocaml source /Users/andy/.opam/system/share/vim/syntax/ocp-indent.vim
-
-let g:syntastic_ocaml_checkers = ['merlin']
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" YouCompleteMe
+let g:ycm_auto_trigger = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '~/src/dotfiles/ycm_extra_config.py'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  \   'rust' : ['.', '::', 're![_a-zA-z0-9]'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+
+" Highlight Class and Function names
+" Ripped off from https://github.com/Valloric/YouCompleteMe/issues/1232#issuecomment-62077297
+function! s:HighlightFunctionsAndClasses()
+  syn match cCustomFunc      "\w\+\s*\((\)\@="
+  syn match cCustomClass     "\w\+\s*\(::\)\@="
+
+  hi def link cCustomFunc      Function
+  hi def link cCustomClass     Function
+endfunction
+
+" TODO: this should:
+" a) not be called for every filetype
+" b) be in a separate plugin
+au Syntax * call s:HighlightFunctionsAndClasses()

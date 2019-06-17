@@ -1,10 +1,8 @@
 alias rm='rm -i'
-alias v='mvim'
-alias vi='mvim -v'
+alias v='gvim'
+alias vi='gvim'
 alias deps='mvn dependency:analyze -DignoreNonCompile=true -DoutputXML=true'
-alias sdup='sudo kextload -b com.apple.driver.AppleSDXC'
-alias mscheme='rlwrap mit-scheme'
-alias arduino='/Applications/Arduino.app/Contents/MacOS/Arduino'
+alias open='xdg-open'
 
 # mkdir, cd into it
 mkcd () {

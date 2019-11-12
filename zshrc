@@ -14,8 +14,8 @@ export PATH="$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
-
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
 source $HOME/git/dotfiles/zshaliases
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11`

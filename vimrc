@@ -9,6 +9,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-vividchalk'
 Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
+Plugin 'highwaynoise/chuck.vim'
 Bundle 'wincent/command-t'
 Plugin 'cespare/vim-toml'
 Bundle "scrooloose/nerdtree.git"

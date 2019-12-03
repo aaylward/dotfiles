@@ -19,7 +19,7 @@ eval "$(pyenv init -)"
 source $HOME/git/dotfiles/zshaliases
 
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
-export M2_HOME="`brew --prefix maven`/libexec"
+export M2_HOME="/usr/local/Cellar/maven/`mvn --version | head -n 1 | awk '{ print $3 }'`/bin"
 
 export OPENSSL_INCLUDE_DIR="$(brew --prefix openssl)/include"
 export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"

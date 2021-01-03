@@ -10,25 +10,21 @@ source $ZSH/oh-my-zsh.sh
 # git
 git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
-export PATH="$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/smlnj/bin"
+export PATH="/opt/homebrew/bin:$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/opt/maven/bin"
+
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/gcc-arm-none-eabi-5_4-2016q3/bin"
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
 source $HOME/git/dotfiles/zshaliases
 
-export JAVA_HOME=`/usr/libexec/java_home -v 11`
-export M2_HOME="/usr/local/Cellar/maven/`mvn --version | head -n 1 | awk '{ print $3 }'`/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
+
+export M2_HOME="/opt/maven/bin"
 
 export OPENSSL_INCLUDE_DIR="$(brew --prefix openssl)/include"
 export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"
 
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"
-
-#coffee
-export COFFEELINT_CONFIG="$HOME/git/dotfiles/.coffeelint_config.json"
 
 # python
 export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
@@ -41,26 +37,7 @@ else
   export EDITOR='mvim -f'
 fi
 export VISUAL='mvim -f'
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 export PATH="$HOME/.cargo/bin:$PATH"
-
-function get_java_build_artifact {
-  project_name=$(pwd | rev | cut -d'/' -f-1 | rev);
-  echo "target/"$project_name"-1.0-SNAPSHOT-shaded.jar"
-}
-
-function pi_deploy_java {
-  scp $(get_java_build_artifact) pi@tippypi.local:/home/pi
-}
-
-function pi_deploy {
-  `pi_deploy_$1`
-}
-
-# OPAM configuration
-. /Users/andy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/X11/lib/pkgconfig/
 for i in `ls /usr/local/opt/`;

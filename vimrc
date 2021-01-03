@@ -18,7 +18,7 @@ Bundle "othree/eregex.vim.git"
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'tomlion/vim-solidity'
-Plugin 'Valloric/YouCompleteMe.git'
+" Plugin 'Valloric/YouCompleteMe.git'
 Bundle 'tikhomirov/vim-glsl'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-salve.git'
@@ -132,7 +132,7 @@ set expandtab
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 set nobackup
 set writebackup
 

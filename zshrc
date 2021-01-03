@@ -14,7 +14,7 @@ export PATH="/opt/homebrew/bin:$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bi
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
-source $HOME/git/dotfiles/zshaliases
+source $HOME/src/dotfiles/zshaliases
 
 # https://www.azul.com/downloads/zulu-community/?version=java-15-mts&os=macos&architecture=arm-64-bit&package=jdk
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
@@ -28,7 +28,7 @@ export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"
 export ERL_LIBS="$HOME/.erlang_libs"
 
 # python
-export PYTHONSTARTUP="$HOME/git/dotfiles/.pythonrc"
+export PYTHONSTARTUP="$HOME/src/dotfiles/.pythonrc"
 export PIP_RESPECT_VIRTUALENV=true
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig/
 

@@ -10,14 +10,19 @@ source $ZSH/oh-my-zsh.sh
 # git
 git config --global alias.lg "log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
-export PATH="/opt/homebrew/bin:$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/opt/maven/bin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/local/sbin:/opt/maven/bin"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
 source $HOME/src/dotfiles/zshaliases
 
 # https://www.azul.com/downloads/zulu-community/?version=java-15-mts&os=macos&architecture=arm-64-bit&package=jdk
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
+
+# homebrew has openjdk 16 preview
+export JAVA_HOME=`/usr/libexec/java_home -v 16`
+
 
 export M2_HOME="/opt/maven/bin"
 

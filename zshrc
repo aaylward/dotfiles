@@ -14,7 +14,10 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:/usr/local/bin:/bin:/usr
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# https://eta-lang.org/
 export PATH="$PATH:$HOME/.local/bin"
+
 source $HOME/src/dotfiles/zshaliases
 
 # https://www.azul.com/downloads/zulu-community/?version=java-15-mts&os=macos&architecture=arm-64-bit&package=jdk

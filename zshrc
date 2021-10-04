@@ -20,11 +20,7 @@ export PATH="$PATH:$HOME/.local/bin"
 
 source $HOME/src/dotfiles/zshaliases
 
-# https://www.azul.com/downloads/zulu-community/?version=java-15-mts&os=macos&architecture=arm-64-bit&package=jdk
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
-
-# homebrew has openjdk 16 preview
-export JAVA_HOME=`/usr/libexec/java_home -v 16`
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
 
 
 export M2_HOME="/opt/maven/bin"

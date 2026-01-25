@@ -1,0 +1,347 @@
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Core utilities
+Plug 'tpope/vim-fugitive'                          " Git integration
+Plug 'tpope/vim-repeat'                            " Better . repeat
+Plug 'tpope/vim-surround'                          " Surround text objects
+Plug 'tpope/vim-commentary'                        " Better than nerdcommenter, simpler
+
+" File navigation (modern alternatives)
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }  " Modern fuzzy finder (replaces Command-T)
+Plug 'nvim-lua/plenary.nvim'                       " Required for telescope
+Plug 'nvim-tree/nvim-tree.lua'                     " Modern file tree (replaces NERDTree)
+Plug 'nvim-tree/nvim-web-devicons'                 " Icons for nvim-tree
+
+" Search
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }  " Better telescope sorting
+
+" Git
+Plug 'lewis6991/gitsigns.nvim'                     " Modern replacement for vim-gitgutter
+
+" LSP and Autocompletion (modern replacement for YouCompleteMe)
+Plug 'neovim/nvim-lspconfig'                       " LSP configurations
+Plug 'hrsh7th/nvim-cmp'                            " Completion engine
+Plug 'hrsh7th/cmp-nvim-lsp'                        " LSP completion source
+Plug 'hrsh7th/cmp-buffer'                          " Buffer completion source
+Plug 'hrsh7th/cmp-path'                            " Path completion source
+Plug 'L3MON4D3/LuaSnip'                            " Snippet engine
+Plug 'saadparwaiz1/cmp_luasnip'                    " Snippet completion source
+
+" Treesitter (modern syntax highlighting)
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Language support
+Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'elm-tooling/elm-vim'                         " Updated elm plugin
+Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'tikhomirov/vim-glsl'
+
+" Color schemes
+Plug 'tpope/vim-vividchalk'
+Plug 'altercation/vim-colors-solarized'
+
+" Other utilities
+Plug 'windwp/nvim-autopairs'                       " Modern auto-pairs
+
+call plug#end()
+
+" ============================================================================
+" Basic Settings
+" ============================================================================
+
+syntax on
+filetype plugin indent on
+
+let mapleader = ","
+
+" Buffer settings
+set hidden
+set history=1000
+set undolevels=1000
+
+" Search settings
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" UI settings
+set title
+set number
+set scrolloff=3
+set showmatch
+set nowrap
+set noerrorbells
+set visualbell
+
+" Wildmenu settings
+set wildmode=list:longest
+set wildignore=*.swp,*.bak,*.pyc,*.class,node_modules/**,bower_components/**
+
+" Backup settings
+set noswapfile
+set nobackup
+set writebackup
+set undodir=~/.vim-other/undo//
+set directory=~/.vim-other/swap//
+set backupdir=~/.vim-other/backup//
+
+" Auto-reload files
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Indentation settings
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set copyindent
+set smarttab
+set shiftround
+
+" Backspace behavior
+set backspace=indent,eol,start
+
+" Clipboard
+set clipboard=unnamedplus
+
+" Command line
+set shortmess=atI
+
+" ============================================================================
+" Key Mappings
+" ============================================================================
+
+" Better jump marks
+nnoremap ' `
+nnoremap ` '
+
+" Clear search highlighting
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Show whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>ws :set nolist!<CR>
+
+" Edit and source vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Easier command mode
+nnoremap ; :
+
+" Sudo write
+cmap w!! w !sudo tee % >/dev/null
+
+" Tab navigation
+nmap <C-H> :tabprev<CR>
+nmap <C-L> :tabnext<CR>
+
+" Faster scrolling
+nnoremap <space> 10jzz
+nnoremap <backspace> 10kzz
+
+" Telescope mappings (replaces Command-T)
+nnoremap <C-P> <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+" nvim-tree toggle (replaces NERDTree)
+nnoremap <leader>e <cmd>NvimTreeToggle<cr>
+
+" ============================================================================
+" Language-specific settings
+" ============================================================================
+
+autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.c set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.cpp set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.cc set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.rb set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.elm set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.cls set ai sw=4 ts=4 sta et fo=croql
+autocmd BufEnter *.coffee set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.js set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.rs set ai sw=2 ts=2 sta et fo=croql
+autocmd BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
+
+" ============================================================================
+" Color Scheme
+" ============================================================================
+
+colorscheme vividchalk
+
+" ============================================================================
+" Plugin Configuration (Lua)
+" ============================================================================
+
+lua << EOF
+-- nvim-tree setup (replaces NERDTree)
+require("nvim-tree").setup({
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = false,
+  },
+})
+
+-- nvim-autopairs setup
+require("nvim-autopairs").setup({})
+
+-- Gitsigns setup (replaces vim-gitgutter)
+require('gitsigns').setup({
+  signs = {
+    add          = { text = '+' },
+    change       = { text = '~' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+  },
+})
+
+-- Treesitter setup
+require('nvim-treesitter.configs').setup({
+  ensure_installed = { 
+    "c", "cpp", "python", "rust", "javascript", "typescript", 
+    "lua", "vim", "elixir", "erlang", "go", "ruby"
+  },
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+})
+
+-- LSP Configuration
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- Example LSP servers (install these separately)
+-- Python: pip install python-lsp-server
+-- Rust: rustup component add rust-analyzer
+-- C/C++: install clangd
+
+-- Python
+lspconfig.pylsp.setup({
+  capabilities = capabilities,
+})
+
+-- Rust
+lspconfig.rust_analyzer.setup({
+  capabilities = capabilities,
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
+-- C/C++
+lspconfig.clangd.setup({
+  capabilities = capabilities,
+})
+
+-- Elixir
+lspconfig.elixirls.setup({
+  capabilities = capabilities,
+  cmd = { "elixir-ls" },
+})
+
+-- Go
+lspconfig.gopls.setup({
+  capabilities = capabilities,
+})
+
+-- TypeScript/JavaScript
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,
+})
+
+-- LSP keymaps
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  end,
+})
+
+-- nvim-cmp setup (completion)
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+    { name = 'path' },
+  })
+})
+
+-- Telescope setup
+require('telescope').setup({
+  defaults = {
+    file_ignore_patterns = { "node_modules", ".git/" },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
+  }
+})
+require('telescope').load_extension('fzf')
+
+-- Rainbow parentheses for Clojure
+vim.g.rainbow_active = 1
+
+EOF

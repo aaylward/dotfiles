@@ -11,7 +11,6 @@ Bundle "rking/ag.vim"
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'highwaynoise/chuck.vim'
 Bundle 'wincent/command-t'
-Plugin 'cespare/vim-toml'
 Bundle "scrooloose/nerdtree.git"
 Bundle "othree/eregex.vim.git"
 " Bundle "scrooloose/syntastic.git"
@@ -35,7 +34,6 @@ Plugin 'ajhager/elm-vim'
 Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'vim-erlang/vim-erlang-compiler'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin '4Evergreen4/vim-hardy.git'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'jiangmiao/auto-pairs'
 
@@ -116,7 +114,7 @@ set noerrorbells
 set visualbell  " somehow this turns off the audio bell-- no idea why
 
 colorscheme vividchalk
-set guifont=BitStream\ Vera\ Sans\ Mono\ 12"
+set guifont=BitStream\ Vera\ Sans\ Mono\ 17"
 " set guifont=Menlo:h13.00
 
 set nowrap        " don't wrap lines

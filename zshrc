@@ -30,16 +30,20 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 export M2_HOME="/opt/maven/bin"
 
-export OPENSSL_INCLUDE_DIR="$(brew --prefix openssl)/include"
-export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"
-
 # erlang
 export ERL_LIBS="$HOME/.erlang_libs"
+
+# golang
+export GO_PATH="$HOME/go"
+export PATH="$PATH:$GO_PATH/bin"
 
 # python
 export PYTHONSTARTUP="$HOME/src/dotfiles/.pythonrc"
 export PIP_RESPECT_VIRTUALENV=true
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:/usr/local/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig/
+
+# rust
+export PATH="$PATH:$HOME/.cargo/bin"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -48,6 +52,7 @@ else
 fi
 export VISUAL='mvim -f'
 export PATH="$HOME/.cargo/bin:$PATH"
+export VCPKG_ROOT="$HOME/vcpkg"
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/X11/lib/pkgconfig/
 for i in `ls /usr/local/opt/`;
@@ -56,4 +61,3 @@ do
     then export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:"/usr/local/opt/$i/lib/pkgconfig";
     fi;
 done
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
